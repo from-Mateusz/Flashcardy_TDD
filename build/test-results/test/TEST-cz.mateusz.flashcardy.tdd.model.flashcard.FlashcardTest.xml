@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-11-17T21:09:53" hostname="DESKTOP-EC1ROMR" time="0.025">
+  <properties/>
+  <testcase name="givenBlankNotionThenThrowRuntimeException()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.016"/>
+  <testcase name="givenBlankDefinitionThenThrowRuntimeException()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.0"/>
+  <testcase name="givenTwoDifferentUsageExamplesThenFlashcardStoresTheseTwo()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.002"/>
+  <testcase name="givenNullUsageExampleThenFlashcardUsageExamplesRemainIntact()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.001"/>
+  <testcase name="givenOneNotionUsageExampleThenFlashcardStoresThisOne()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.0"/>
+  <testcase name="givenNullDefinitionThenThrowRuntimeException()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.001"/>
+  <testcase name="givenNullNotionThenThrowRuntimeException()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.001"/>
+  <testcase name="givenBlankUsageExampleThenFlashcardUsageExamplesRemainIntact()" classname="cz.mateusz.flashcardy.tdd.model.flashcard.FlashcardTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
