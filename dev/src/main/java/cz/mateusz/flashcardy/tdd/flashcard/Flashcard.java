@@ -1,4 +1,2 @@
-package cz.mateusz.flashcardy.tdd.flashcard;
-
-public class Flashcard {
+package cz.mateusz.flashcardy.tdd.flashcard;public class Flashcard {
 }
