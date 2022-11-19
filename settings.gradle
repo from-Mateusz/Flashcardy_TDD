@@ -1,2 +1,3 @@
 rootProject.name = 'Flashcardy_TDD'
+include 'dev'
 
