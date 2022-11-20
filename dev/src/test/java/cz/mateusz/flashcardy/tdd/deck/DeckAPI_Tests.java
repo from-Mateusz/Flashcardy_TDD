@@ -45,6 +45,7 @@ public class DeckAPI_Tests {
                 .thenReturn(Optional.ofNullable(new Deck("Spanish - Basics vol. 1")));
 
         final Deck expandedDeck = api.expandDeckWithFlashcards(RANDOM_DECK_ID, flashcards);
+
         assertThat(expandedDeck.getCards(),contains(copyFlashcard(flashcards.get(0)),
                                                     copyFlashcard(flashcards.get(1)))
         );
