@@ -46,7 +46,8 @@ public class DeckAPI_Tests {
 
         final Deck expandedDeck = api.expandDeckWithFlashcards(RANDOM_DECK_ID, flashcards);
         assertThat(expandedDeck.getCards(),contains(copyFlashcard(flashcards.get(0)),
-                                                    copyFlashcard(flashcards.get(1))));
+                                                    copyFlashcard(flashcards.get(1)))
+        );
     }
 
     /**
