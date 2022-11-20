@@ -33,10 +33,8 @@ public class Deck_Tests {
         Flashcard flashcard2 = new Flashcard("la casa", "house");
         deck.expandWith(flashcard1);
         deck.expandWith(flashcard2);
-        assertThat(deck.getCards(), contains(
-                    copyFlashcard(flashcard1),
-                    copyFlashcard(flashcard2)
-                ));
+        assertThat(deck.getCards(),
+                contains(copyFlashcard(flashcard1), copyFlashcard(flashcard2)));
     }
 
     /**
