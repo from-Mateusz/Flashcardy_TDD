@@ -41,7 +41,7 @@ public class Deck_Tests {
 
     /**
      * ======================================================================================
-     *                                  HELPER METHODS
+     *                                  HELPFUL METHODS
      * ======================================================================================
      */
     private Flashcard copyFlashcard(Flashcard flashcard) {
