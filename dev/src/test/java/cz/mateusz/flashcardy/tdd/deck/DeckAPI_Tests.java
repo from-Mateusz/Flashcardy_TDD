@@ -21,6 +21,8 @@ public class DeckAPI_Tests {
 
     private DeckAPI api;
 
+    private final Long RANDOM_DECK_ID = Math.round(Math.random() * 100);
+
     @BeforeEach
     public void doBeforeAnyTest() {
         deckRepository = mock(DeckRepository.class);
@@ -38,19 +40,18 @@ public class DeckAPI_Tests {
     public void expandDeckWithFlashcards() {
         final List<Flashcard> flashcards = List.of( new Flashcard("como esta?", "how are you?"),
                                                     new Flashcard("esta manana", "this morning"));
-        final Long deckId = 1L;
 
-        when(deckRepository.findDeckById(1L))
+        when(deckRepository.findDeckById(RANDOM_DECK_ID))
                 .thenReturn(Optional.ofNullable(new Deck("Spanish - Basics vol. 1")));
 
-        final Deck expandedDeck = api.expandDeckWithFlashcards(deckId, flashcards);
+        final Deck expandedDeck = api.expandDeckWithFlashcards(RANDOM_DECK_ID, flashcards);
         assertThat(expandedDeck.getCards(),contains(copyFlashcard(flashcards.get(0)),
                                                     copyFlashcard(flashcards.get(1))));
     }
 
     /**
      * ======================================================================================
-     *                                  HELPER METHODS
+     *                                  HELPFUL METHODS
      * ======================================================================================
      */
 
