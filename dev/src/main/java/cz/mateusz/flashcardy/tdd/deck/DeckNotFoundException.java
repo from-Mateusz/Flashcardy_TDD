@@ -1,4 +1,4 @@
-package cz.mateusz.flashcardy.tdd.flashcard;
+package cz.mateusz.flashcardy.tdd.deck;
 
 public class DeckNotFoundException extends RuntimeException {
     private Long id;

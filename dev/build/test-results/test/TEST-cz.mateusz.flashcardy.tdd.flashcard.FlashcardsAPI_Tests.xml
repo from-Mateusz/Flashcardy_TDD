@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cz.mateusz.flashcardy.tdd.flashcard.FlashcardsAPI_Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-19T22:19:53" hostname="DESKTOP-EC1ROMR" time="0.417">
-  <properties/>
-  <testcase name="fillDeckWithFlashcards()" classname="cz.mateusz.flashcardy.tdd.flashcard.FlashcardsAPI_Tests" time="0.417"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

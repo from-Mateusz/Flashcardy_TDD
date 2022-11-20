@@ -1,4 +1,4 @@
-package cz.mateusz.flashcardy.tdd.flashcard;
+package cz.mateusz.flashcardy.tdd.deck;
 
 import java.util.Optional;
 

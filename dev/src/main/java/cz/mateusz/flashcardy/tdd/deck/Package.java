@@ -1,11 +1,11 @@
-package cz.mateusz.flashcardy.tdd.flashcard;
+package cz.mateusz.flashcardy.tdd.deck;
 
 public final class Package {
     private Package() {}
 
     /**
      * =================================================================
-     *                  FLASHCARDS' FEATURES PACKAGE
+     *                  DECK OF FLASHCARDS' FEATURES PACKAGE
      * =================================================================
      */
 }
