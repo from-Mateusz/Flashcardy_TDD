@@ -42,6 +42,7 @@ public class Deck_Tests {
      *                                  HELPFUL METHODS
      * ======================================================================================
      */
+
     private Flashcard copyFlashcard(Flashcard flashcard) {
         return new Flashcard(flashcard.getNotion(), flashcard.getDefinition());
     }
