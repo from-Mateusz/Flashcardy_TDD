@@ -1,5 +1,9 @@
 package cz.mateusz.flashcardy.tdd.deck;
 
+import cz.mateusz.flashcardy.tdd.flashcard.Flashcard;
+
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 public class DeckService implements DeckSeekOperations, DeckManipulationOperations {
@@ -22,7 +26,7 @@ public class DeckService implements DeckSeekOperations, DeckManipulationOperatio
     }
 
     @Override
-    public Deck refresh(Deck deck) {
+    public Deck update(Deck deck) {
         return null;
     }
 }

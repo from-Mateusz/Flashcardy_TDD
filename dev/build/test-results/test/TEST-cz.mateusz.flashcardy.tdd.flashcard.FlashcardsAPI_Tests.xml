@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cz.mateusz.flashcardy.tdd.flashcard.FlashcardsAPI_Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-22T12:22:21" hostname="DESKTOP-EC1ROMR" time="0.024">
+  <properties/>
+  <testcase name="whenShuffleFlashcardsThenProvideVerySameFlashcardsButDifferentlyOrdered()" classname="cz.mateusz.flashcardy.tdd.flashcard.FlashcardsAPI_Tests" time="0.024"/>
+  <system-out><![CDATA[[Flashcard{notion='como esta?', definition='how are you?'}, Flashcard{notion='esta manana', definition='this morning'}, Flashcard{notion='donde?', definition='where?'}, Flashcard{notion='pero', definition='but'}]
+[Flashcard{notion='donde?', definition='where?'}, Flashcard{notion='pero', definition='but'}, Flashcard{notion='como esta?', definition='how are you?'}, Flashcard{notion='esta manana', definition='this morning'}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

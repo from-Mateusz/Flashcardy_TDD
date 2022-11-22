@@ -4,11 +4,11 @@ import cz.mateusz.flashcardy.tdd.flashcard.Flashcard;
 
 import java.util.List;
 
-public class DeckAPI {
+public class DecksAPI {
 
     private DeckService deckService;
 
-    public DeckAPI(DeckService deckService) {
+    public DecksAPI(DeckService deckService) {
         this.deckService = deckService;
     }
 
@@ -17,9 +17,15 @@ public class DeckAPI {
         return deck;
     }
 
-    public Deck expandDeckWithFlashcards(Long deckId, List<Flashcard> flashcards) {
+    public Deck populateDeck(Long deckId, List<Flashcard> flashcards) {
         Deck deck = deckService.seekDeckById(deckId);
-        deck.expandWith(flashcards);
+        deck.expandBy(flashcards);
+        return deck;
+    }
+
+    public Deck depopulateDeck(Long deckId, List<Flashcard> flashcards) {
+        Deck deck = deckService.seekDeckById(deckId);
+        deck.shrinkBy(flashcards);
         return deck;
     }
 }

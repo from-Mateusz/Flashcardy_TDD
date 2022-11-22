@@ -53,4 +53,12 @@ public class Flashcard {
     public int hashCode() {
         return Objects.hash(notion, definition);
     }
+
+    @Override
+    public String toString() {
+        return "Flashcard{" +
+                "notion='" + notion + '\'' +
+                ", definition='" + definition + '\'' +
+                '}';
+    }
 }

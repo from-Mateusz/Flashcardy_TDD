@@ -43,12 +43,16 @@ public class Deck {
         this.name = name;
     }
 
-    public boolean expandWith(Flashcard card) {
+    public boolean expandBy(Flashcard card) {
         return this.cards.add(card);
     }
 
-    public boolean expandWith(List<Flashcard> cards) {
+    public boolean expandBy(List<Flashcard> cards) {
         return this.cards.addAll(cards);
+    }
+
+    public boolean shrinkBy(List<Flashcard> cards) {
+        return this.cards.removeAll(cards);
     }
 
     public List<Flashcard> getCards() {

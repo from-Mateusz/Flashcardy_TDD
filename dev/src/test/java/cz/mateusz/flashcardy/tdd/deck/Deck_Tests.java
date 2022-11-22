@@ -27,12 +27,12 @@ public class Deck_Tests {
     }
 
     @Test
-    public void WhenDeckExpandsWithGivenFlashcardsThanItKeepsThoseFlashcards() {
+    public void WhenDeckExpandByNewFlashcardsThenItKeepsThem() {
         Deck deck = new Deck("Spanish Basics vol.1 ");
         Flashcard flashcard1 = new Flashcard("come esta?", "how are you?");
         Flashcard flashcard2 = new Flashcard("la casa", "house");
-        deck.expandWith(flashcard1);
-        deck.expandWith(flashcard2);
+        deck.expandBy(flashcard1);
+        deck.expandBy(flashcard2);
         assertThat(deck.getCards(),
                 contains(copyFlashcard(flashcard1), copyFlashcard(flashcard2)));
     }

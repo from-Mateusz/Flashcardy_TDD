@@ -1,7 +1,6 @@
 package cz.mateusz.flashcardy.tdd.deck;
 
 import cz.mateusz.flashcardy.tdd.flashcard.Flashcard;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,13 +12,13 @@ import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class DeckAPI_Tests {
+public class DecksAPI_Tests {
 
     private DeckService deckService;
 
     private DeckRepository deckRepository;
 
-    private DeckAPI api;
+    private DecksAPI api;
 
     private final Long RANDOM_DECK_ID = Math.round(Math.random() * 100);
 
@@ -27,7 +26,7 @@ public class DeckAPI_Tests {
     public void doBeforeAnyTest() {
         deckRepository = mock(DeckRepository.class);
         deckService = new DeckService(deckRepository);
-        api = new DeckAPI(deckService);
+        api = new DecksAPI(deckService);
     }
 
     @Test
@@ -37,17 +36,34 @@ public class DeckAPI_Tests {
     }
 
     @Test
-    public void expandDeckWithFlashcards() {
+    public void whenPopulateDeckThenDeckGrowsAccordingly() {
         final List<Flashcard> flashcards = List.of( new Flashcard("como esta?", "how are you?"),
                                                     new Flashcard("esta manana", "this morning"));
 
         when(deckRepository.findDeckById(RANDOM_DECK_ID))
                 .thenReturn(Optional.ofNullable(new Deck("Spanish - Basics vol. 1")));
 
-        final Deck expandedDeck = api.expandDeckWithFlashcards(RANDOM_DECK_ID, flashcards);
+        final Deck populatedDeck = api.populateDeck(RANDOM_DECK_ID, flashcards);
 
-        assertThat(expandedDeck.getCards(),
+        assertThat(populatedDeck.getCards(),
                     contains(copyFlashcard(flashcards.get(0)), copyFlashcard(flashcards.get(1))));
+    }
+
+    @Test
+    public void whenDepopulateDeckThenDeckShrinksAccordingly() {
+        final List<Flashcard> flashcards = List.of( new Flashcard("como esta?", "how are you?"),
+                                                    new Flashcard("esta manana", "this morning"));
+
+        final Deck deck = api.createEmptyDeck("Spanish Basics vol.1" );
+
+        when(deckRepository.findDeckById(RANDOM_DECK_ID))
+                .thenReturn(Optional.ofNullable(deck));
+
+        final Deck expandedDeck = api.populateDeck(RANDOM_DECK_ID, flashcards);
+
+        final Deck shrunkDeck = api.depopulateDeck(RANDOM_DECK_ID, flashcards.subList(0, 1));
+
+        assertThat(shrunkDeck.getCards(), not(contains(flashcards.subList(0, 1))));
     }
 
     /**
@@ -58,5 +74,12 @@ public class DeckAPI_Tests {
 
     private Flashcard copyFlashcard(Flashcard flashcard) {
         return new Flashcard(flashcard.getNotion(), flashcard.getDefinition());
+    }
+
+    private List<Flashcard> createFlashcards() {
+        return List.of( new Flashcard("como esta?", "how are you?"),
+                        new Flashcard("esta manana", "this morning"),
+                        new Flashcard( "donde?", "where?"),
+                        new Flashcard("pero", "but"));
     }
 }
