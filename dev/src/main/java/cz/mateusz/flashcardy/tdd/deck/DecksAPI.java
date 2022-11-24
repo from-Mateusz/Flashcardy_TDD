@@ -1,7 +1,9 @@
 package cz.mateusz.flashcardy.tdd.deck;
 
 import cz.mateusz.flashcardy.tdd.flashcard.Flashcard;
+import cz.mateusz.flashcardy.tdd.player.Player;
 
+import java.util.Collections;
 import java.util.List;
 
 public class DecksAPI {
@@ -12,8 +14,8 @@ public class DecksAPI {
         this.deckService = deckService;
     }
 
-    public Deck createEmptyDeck(String name) {
-        Deck deck = new Deck(name);
+    public Deck createEmptyDeck(String name, Player owner) {
+        Deck deck = new Deck(name, owner);
         return deck;
     }
 
@@ -27,5 +29,9 @@ public class DecksAPI {
         Deck deck = deckService.seekDeckById(deckId);
         deck.shrinkBy(flashcards);
         return deck;
+    }
+
+    public List<Deck> getOtherPlayersDecks() {
+        return deckService.seekDecksSharedByOthers();
     }
 }

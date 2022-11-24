@@ -16,6 +16,7 @@ ext {
 dependencies {
     implementation "org.springframework:spring-context:${springVer}"
     implementation "org.springframework:spring-webmvc:${springVer}"
+    implementation "org.springframework.security:spring-security-core:${springVer}"
     testImplementation "org.springframework:spring-test:${springVer}"
     testImplementation 'org.hamcrest:hamcrest-all:1.3'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
