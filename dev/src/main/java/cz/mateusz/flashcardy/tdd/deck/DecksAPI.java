@@ -31,7 +31,11 @@ public class DecksAPI {
         return deck;
     }
 
-    public List<Deck> getOtherPlayersDecks() {
-        return deckService.seekDecksSharedByOthers();
+    public DeckSharing shareDeckWithOthers(Deck deck) {
+        return new DeckSharing(deck);
+    }
+
+    public List<Deck> findDecksSharedByOthers() {
+        return Collections.emptyList();
     }
 }

@@ -87,21 +87,34 @@ public class DecksAPI_Tests {
     }
 
     @Test
-    public void playerHasAccessToOtherPlayersDeckContentWhenItsContentHasBeenShared() {
+    public void deckSharingMakesDeckFreelyAvailableToOtherPlayers() {
         final List<Flashcard> flashcards = createFlashcards();
 
-        final Deck deck = api.createEmptyDeck("Shared Spanish Basics vol.1", createPlayerMateusz() );
+        final Deck deck = api.createEmptyDeck("Spanish Basics vol.1", createPlayerMateusz());
 
-        deck.shareContentWithOthers();
+        final DeckSharing deckSharing = api.shareDeckWithOthers(deck);
 
-        when(deckRepository.findDecksWithSharedContent())
-                .thenReturn(List.of(deck));
+        final List<Deck> sharedDecks = api.findDecksSharedByOthers();
 
-        final List<Deck> otherPlayersDecks = api.getOtherPlayersDecks();
-
-        assertThat(otherPlayersDecks.stream().filter(d -> d.hasSharedContentWithOthers()).collect(Collectors.toList()),
-                    hasSize(1));
+        assertThat(sharedDecks, contains(copyDeck(deck)));
     }
+
+//    @Test
+//    public void GivenDeckOfFlashcardHasSharedContent_WhenFindReadyMadeFlashcards_ThenIncludeItInResults() {
+//        final List<Flashcard> flashcards = createFlashcards();
+//
+//        final Deck deck = api.createEmptyDeck("Shared Spanish Basics vol.1", createPlayerMateusz() );
+//
+//        deck.shareContentWithOthers();
+//
+//        when(deckRepository.findReadyMadeDeck())
+//                .thenReturn(List.of(deck));
+//
+//        final List<Deck> otherPlayersDecks = api.getOtherPlayersDecks();
+//
+//        assertThat(otherPlayersDecks.stream().filter(d -> d.hasSharedContentWithOthers()).collect(Collectors.toList()),
+//                    hasSize(1));
+//    }
 
 //    public void playerHasNoAccessToOtherPlayersDeckContentWhenItsContentHasBeenHiddenFromOthers() {
 //        final List<Flashcard> flashcards = createFlashcards();
@@ -126,6 +139,16 @@ public class DecksAPI_Tests {
      *                                  HELPFUL METHODS
      * ======================================================================================
      */
+
+    private Deck copyDeck(Deck deck) {
+        Deck copy = new Deck(deck.getName(), copyDeckOwner(deck));
+        copy.expandBy(deck.getCards()
+                .stream()
+                .map(card -> copyFlashcard(card))
+                .collect(Collectors.toList())
+        );
+        return copy;
+    }
 
     private Flashcard copyFlashcard(Flashcard flashcard) {
         return new Flashcard(flashcard.getNotion(), flashcard.getDefinition());
