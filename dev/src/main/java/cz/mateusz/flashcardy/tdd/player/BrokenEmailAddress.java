@@ -1,10 +1,14 @@
 package cz.mateusz.flashcardy.tdd.player;
 
-public class InvalidEmailAddress extends RuntimeException {
+public class BrokenEmailAddress extends RuntimeException {
 
     private String emailAddress;
 
-    public InvalidEmailAddress(String emailAddress) {
+    public BrokenEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
     }
 }

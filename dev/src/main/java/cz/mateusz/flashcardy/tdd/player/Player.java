@@ -6,12 +6,34 @@ public class Player {
 
     private String name;
 
+    private EmailAddress emailAddress;
+
+    private Password password;
+
     public Player(String name) {
         this.name = name;
     }
 
+    public Player(String name, EmailAddress emailAddress) {
+        this(name);
+        this.changeEmailAddress(emailAddress);
+    }
+
+    public Player(String name, EmailAddress emailAddress, Password password) {
+        this(name, emailAddress);
+        changePassword(password);
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void changeEmailAddress(EmailAddress emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public void changePassword(Password password) {
+        this.password = password;
     }
 
     @Override

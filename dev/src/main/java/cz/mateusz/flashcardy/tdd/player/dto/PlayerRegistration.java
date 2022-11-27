@@ -1,42 +1,42 @@
-package cz.mateusz.flashcardy.tdd.player;
+package cz.mateusz.flashcardy.tdd.player.dto;
 
 public class PlayerRegistration {
 
-    private String name;
+    private ReadProperty name;
 
-    private String email;
+    private ReadProperty email;
 
-    private String password;
+    private ReadProperty password;
 
     public PlayerRegistration() {}
 
-    public PlayerRegistration(String name, String email, String password) {
+    public PlayerRegistration(ReadProperty name, ReadProperty email, ReadProperty password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public String getName() {
+    public ReadProperty getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(ReadProperty name) {
         this.name = name;
     }
 
-    public String getEmail() {
+    public ReadProperty getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(ReadProperty email) {
         this.email = email;
     }
 
-    public String getPassword() {
+    public ReadProperty getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(ReadProperty password) {
         this.password = password;
     }
 }
