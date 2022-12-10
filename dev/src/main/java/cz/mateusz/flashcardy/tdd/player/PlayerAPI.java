@@ -1,6 +1,7 @@
 package cz.mateusz.flashcardy.tdd.player;
 
 import cz.mateusz.flashcardy.tdd.player.dto.PlayerRegistration;
+import cz.mateusz.flashcardy.tdd.player.dto.PlayerRegistrationConfirmation;
 import cz.mateusz.flashcardy.tdd.player.dto.PlayerRegistrationValidator;
 import org.springframework.http.ResponseEntity;
 
@@ -14,7 +15,9 @@ public class PlayerAPI {
         this.playerRegistrationValidator = playerRegistrationValidator;
     }
 
-    public List<PlayerRegistrationValidator.Validation> registerPlayer(PlayerRegistration registration) {
-        return playerRegistrationValidator.validate(registration);
+    public PlayerRegistrationConfirmation registerPlayer(PlayerRegistration registration) {
+        PlayerRegistrationConfirmation confirmation =
+                new PlayerRegistrationConfirmation(playerRegistrationValidator.validate(registration));
+        return confirmation;
     }
 }
